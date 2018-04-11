@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <a href="#"><i class="icon iconfont icon-xiangzuo"></i></a>
+            <a href="#">无连接</a>
+            <a href="#"><i class="icon iconfont icon-gengduo-2"></i></a>
+        </header>
+        <nav>
+            <span>
+                <i class="icon iconfont icon-tuichu"></i>
+                <a href="#">电源</a>
+            </span>
+            <span>
+                <i class="icon iconfont icon-iconhuidaoshouye"></i>
+                <a href="#">首页</a>
+            </span>
+            <span>
+                <i class="icon iconfont icon-gengduo-2"></i>
+                <a href="#">菜单</a>
+            </span>
+            <span>
+                <i class="icon iconfont icon-fenxiang6"></i>
+                <a href="#">截屏</a>
+            </span>
+        </nav>
+        <section>
+            <div class="swiper-container main">
+                <div class="swiper-wrapper pages">
+                    <div class="swiper-slide page1">滑动控制上下左右，点击确定长按调节电视音量</div>
+                    <div class="swiper-slide page2">第二页</div>
+                    <div class="swiper-slide page3">第三页</div>
+                    <div class="swiper-slide page4">第四页</div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <span><i class="icon iconfont icon-fenlei"></i></span>
+            <span><i class="icon iconfont icon-arrow-left"></i></span>
+            <span></span>
+        </footer>
+    </div>
+    <script src="js/swiper-3.4.2.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script>
+     var myswiper = new Swiper('.main',{
+        onSlideChangeEnd:function(e){
+            var ind = e.activeIndex;
+            console.log(ind);
+            $('nav span').eq(ind).addClass('bg').siblings().removeClass('bg');
+        }
+     });
+     $('nav span').on('click', function(){
+         var ind = $(this).index();
+         myswiper.slideTo(ind);
+         $(this).addClass('bg').siblings().removeClass('bg');
+     })
+
+    </script>
+</body>
+</html>
